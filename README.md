@@ -1,7 +1,7 @@
 # DUITS-Member-Recruitment-Form
 
 To Run this script
-python3 -m venv env
+python3 -m venv env \n
 source env/bin/activate
 python3 manage.py runserver
 
