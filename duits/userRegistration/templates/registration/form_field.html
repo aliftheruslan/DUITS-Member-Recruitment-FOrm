@@ -1,0 +1,25 @@
+{% load crispy_forms_tags %}
+{% load static %}
+{% if field.is_hidden %}
+{{ field }}
+{% else %}
+<div class="form-group{% if field.errors %} has-error{% endif %}">
+ {% if field.label %}
+ <label class="control-label{% if field.field.required %} required{% endif %}" for="{{ field.id_for_label }}">{{
+  field.label }}</label>
+ {% endif %}
+ <div class="controls">
+  {{ field|as_crispy_field }}
+  {% if field.help_text %}
+  <p class="help-block">{{ field.help_text }}</p>
+  {% endif %}
+  {% if field.errors %}
+  <ul class="errorlist">
+   {% for error in field.errors %}
+   <li>{{ error }}</li>
+   {% endfor %}
+  </ul>
+  {% endif %}
+ </div>
+</div>
+{% endif %}

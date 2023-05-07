@@ -1,0 +1,217 @@
+{% extends './home.html' %}
+{% load static %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+<head>
+  <link rel="stylesheet" href="{% static 'reg-styles.css' %}">
+</head>
+
+<div class="container">
+  <center><h1> Member Registration Form</h1></center>
+  <div class="row">
+    <div class="col-md-12">
+    <form id="{{ form.helper.form_id }}" method="{{ form.helper.form_method }}" action="{{ form.helper.form_action }}"
+      class="{{ form.helper.form_class }}" onsubmit="return validateForm()">
+      {% csrf_token %}
+      <div class="card">
+        <div class="card-header">
+          <center>
+            <h3>Step 1: Personal Information</h3>
+          </center>
+        </div>
+        <div class="card-body">
+          <div class="d-flex justify-content-center mb-3">
+            {% load static %}
+            <img src="{%static 'img/rsz_bars-solid.png'%}" class="rounded-circle" alt="naii" width="150" height="150">
+          </div>
+          <div class="form-row">
+            <div class="col">
+              <div class="form-group">
+                <label for="{{ form.name.id_for_label }}">Name</label>
+                <input type="text" class="form-control rounded-0" id="{{ form.name.id_for_label }}"
+                  name="{{ form.name.name }}" placeholder="Enter Name" required>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="{{ form.department.id_for_label }}">Department</label>
+            <input type="text" class="form-control rounded-0" id="{{ form.department.id_for_label }}"
+              name="{{ form.department.name }}" required>
+          </div>
+          <div class="form-group">
+            <label for="{{ form.session.id_for_label }}">Session</label>
+            <input type="text" class="form-control rounded-0" id="{{ form.session.id_for_label }}"
+              name="{{ form.session.name }}"  required>
+          </div>
+          <div class="form-group">
+            <label for="{{ form.registration_number.id_for_label }}">Registration Number</label>
+            <input type="text" class="form-control rounded-0" id="{{ form.registration_number.id_for_label }}"
+              name="{{ form.registration_number.name }}" required>
+          </div>
+          <div class="form-group">
+            <label for="{{ form.hall.id_for_label }}">Hall</label>
+            <input type="text" class="form-control rounded-0" id="{{ form.hall.id_for_label }}" name="{{ form.hall.name }}"
+              required>
+          </div>
+          <div class="form-group">
+            <label for="{{ form.email.id_for_label }}">Email</label>
+            <input type="email" class="form-control rounded-0" id="{{ form.email.id_for_label }}"
+              name="{{ form.email.name }}"  required>
+          </div>
+          <div class="form-group">
+            <label for="{{ form.fathers_name.id_for_label }}">Father's Name</label>
+            <input type="text" class="form-control rounded-0" id="{{ form.fathers_name.id_for_label }}"
+              name="{{ form.fathers_name.name }}"  required>
+          </div>
+      <div class="form-group">
+        <label for="{{ form.mothers_name.id_for_label }}">Mother's Name</label>
+        <input type="text" class="form-control rounded-0" id="{{ form.mothers_name.id_for_label }}"
+          name="{{ form.mothers_name.name }}" required>
+      </div>
+      <div class="form-group">
+        <label for="{{ form.present_address.id_for_label }}">Present Address</label>
+        <input type="text" class="form-control rounded-0" id="{{ form.present_address.id_for_label }}"
+          name="{{ form.present_address.name }}" required>
+      </div>
+      <div class="form-group">
+        <label for="{{ form.permanent_address.id_for_label }}">Permanent Address</label>
+
+        <input type="text" class="form-control rounded-0" id="{{ form.permanent_address.id_for_label }}"
+          name="{{ form.permanent_address.name }}" required>
+      </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+      <div class="card">
+        <div class="card-header">
+          <center><h3>Step 2: Relevant Information</h3></center>
+          
+        </div>
+        <div class="card-body">
+         
+          <div class="form-group">
+            <label for="{{ form.ssc_institution.id_for_label }}">SSC Institution</label>
+            <input type="text" class="form-control rounded-0" id="{{ form.ssc_institution.id_for_label }}"
+              name="{{ form.ssc_institution.name}}" required>
+          </div>
+          <div class="form-group">
+            <label for="{{ form.ssc_board.id_for_label }}">SSC Board</label>
+            <input type="text" class="form-control rounded-0" id="{{ form.ssc_board.id_for_label }}"
+              name="{{ form.ssc_board.name }}" required>
+          </div>
+          <div class="form-group">
+            <label for="{{ form.ssc_passing_year.id_for_label }}">SSC Passing Year</label>
+            <input type="text" class="form-control rounded-0" id="{{ form.ssc_passing_year.id_for_label }}"
+              name="{{ form.ssc_passing_year.name }}" required>
+          </div>
+          <div class="form-group">
+            <label for="{{ form.hsc_institution.id_for_label }}">HSC Institution</label>
+            <input type="text" class="form-control rounded-0" id="{{ form.hsc_institution.id_for_label }}"
+              name="{{ form.hsc_institution.name }}" required>
+          </div>
+          <div class="form-group">
+            <label for="{{ form.hsc_board.id_for_label }}">HSC Board</label>
+            <input type="text" class="form-control rounded-0" id="{{ form.hsc_board.id_for_label }}"
+              name="{{ form.hsc_board.name }}" required>
+          </div>
+          <div class="form-group">
+            <label for="{{ form.hsc_passing_year.id_for_label }}">HSC Passing Year</label>
+            <input type="text" class="form-control rounded-0" id="{{ form.hsc_passing_year.id_for_label }}"
+              name="{{ form.hsc_passing_year.name }}" required>
+          </div>
+          <div class="form-group">
+            <label for="{{ form.social_media_link_1.id_for_label }}">Social Media Link 1</label>
+            <input type="text" class="form-control rounded-0" id="{{ form.social_media_link_1.id_for_label }}"
+              name="{{ form.social_media_link_1.name }}"required>
+          </div>
+          <div class="form-group">
+            <label for="{{ form.social_media_link_2.id_for_label }}">Social Media Link 2</label>
+            <input type="text" class="form-control rounded-0" id="{{ form.social_media_link_2.id_for_label }}"
+              name="{{ form.social_media_link_2.name }}" >
+          </div>
+          <div class="form-group">
+            <center>
+              <h3>Extra Curricular Activities</h3>
+            </center>
+            <div>
+              <input type="checkbox" id="photography" class="custom-checkbox" name="mycheckbox" value="1">
+              <label for="photography">Photography</label>
+            </div>
+            <div>
+              <input type="checkbox" id="content-writing" class="custom-checkbox" name="mycheckbox" value="1">
+              <label for="content-writing">Content Writing</label>
+            </div>
+            <div>
+              <input type="checkbox" id="debating" class="custom-checkbox" name="mycheckbox" value="1">
+              <label for="debating">Debating</label>
+            </div>
+            <div>
+              <input type="checkbox" id="graphics-designing" class="custom-checkbox" name="mycheckbox" value="1">
+              <label for="graphics-designing">Graphics Designing</label>
+            </div>
+            <div>
+              <input type="checkbox" id="web-development" class="custom-checkbox" name="mycheckbox" value="1">
+              <label for="web-development">Web Development</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="{{ form.hobbies_and_interests.id_for_label }}">Hobbies and Interests</label>
+            <input type="text" class="form-control rounded-0" id="{{ form.hobbies_and_interests.id_for_label }}"
+              name="{{ form.hobbies_and_interests.name }}" required>
+          </div>
+        </div>
+      </div>
+
+
+    <div class="card">
+      <div class="card-header">
+        <center><h3>Step 3: Extra Information</h3></center>
+        
+      </div>
+      <div class="card-body">
+        <div class="form-group">
+          <label for="{{ form.why_join_duits.id_for_label }}">Why do you want to join DUITs?</label>
+          <input type="text" class="form-control rounded-0" id="{{ form.why_join_duits.id_for_label }}"
+            name="{{ form.why_join_duits.name }}" required>
+        </div>
+        <div class="form-group">
+          <label for="{{ form.information_tech_interest.id_for_label }}">Which Information Technology excites you the most?</label>
+          <input type="text" class="form-control rounded-0" id="{{ form.information_tech_interest.id_for_label }}"
+            name="{{ form.information_tech_interest.name }}" required>
+        </div>
+        <div class="form-group">
+          <label for="{{ form.other_club_member.id_for_label }}">Are you a member of any other club? If yes, mention that/those...</label>
+          <input type="text" class="form-control rounded-0" id="{{ form.other_club_member.id_for_label }}"
+            name="{{ form.other_club_member.name }}" required>
+        </div>
+        <div class="form-group">
+          <center><h3> Tools You are skilled at</h3></center>
+      <input type="checkbox" class="custom-checkbox" name="mycheckbox" value="1">
+      <span>Microsoft word, Excels etc </span>
+      </div>
+      <div class="form-group">
+        <input type="checkbox" class="custom-checkbox" name="mycheckbox" value="1">
+        <span>Adobe Illustrator/Photoshop</span>
+      </div>
+      <div class="form-group">
+        <input type="checkbox" class="custom-checkbox" name="mycheckbox" value="1">
+        <span>Canva </span>
+      </div>
+      <div class="form-group">
+        <input type="checkbox" class="custom-checkbox" name="mycheckbox" value="1">
+        <span>Google Workspace</span>
+      </div>
+      <div class="form-group">
+        <input type="checkbox" class="custom-checkbox" name="mycheckbox" value="1">
+        <span>Program Compilers</span>
+      </div>
+      </div>
+      <button> Submit</button>
+    </div>
+    
+{% endblock %}

@@ -1,0 +1,28 @@
+# Django-related files
+*.log
+*.pyc
+__pycache__/
+*.sqlite3
+
+# Static files
+static/
+media/
+
+# Environment variables
+.env
+
+# Local development settings
+settings.local.py
+
+# IDE and text editor files
+.vscode/
+.idea/
+
+# Compiled Python files
+*.pyc
+
+# macOS-related files
+.DS_Store
+
+# Other temporary files
+*~
