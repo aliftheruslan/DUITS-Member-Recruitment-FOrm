@@ -38,7 +38,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="/home/karmaker/Documents/IpLabProject/duitsproject/duits/duits/env"
+VIRTUAL_ENV="/home/karmaker/Documents/IpLabProject/duitsproject/DUITS-Member-Recruitment-FOrm/duits/duits/env"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
